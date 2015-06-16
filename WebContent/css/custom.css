@@ -7,17 +7,26 @@
     width: 800px;
 	
 }
-
-.pre{
+.prebtn{
     position: relative;	
     z-index: 2;
     top: 260px;
     font-size: xx-large;
+    float: left;
+    background-color: transparent;
+    border: 0;
 }
-.next{
+.nextbtn{
     position: relative;	
     z-index: 2;
     top: 260px;
     float: right;
     font-size:xx-large
+;
+    background-color: transparent;
+    border: 0;
+}    
+.pre{
+}
+.next{
 }
