@@ -74,7 +74,15 @@
     height: 53px;
 	
 }
+#selection17 img{
+    top: -290px;
 
+}
+
+#selection17 button{
+    top: 164px;
+	
+}
 #goodEnding img{
     top: 0px;	
 }
@@ -104,4 +112,11 @@
     position: relative;
 	
     top: 50px;
+}
+#show{
+    color: white;
+	
+    position: relative;
+    top: 119px;
+    height: 20px;
 }
