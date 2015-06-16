@@ -13,8 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+//import com.bac.user.UserDao;
 
-public class userServlet extends HttpServlet{
+public class UserServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,7 +32,7 @@ public class userServlet extends HttpServlet{
 		JSONObject JObject = new JSONObject();
 		String type = request.getParameter("type");
 
-		userDao dao = new userDao();
+		UserDao dao = new UserDao();
 
 		try{
 			if(type.equals("1")){	//User Info API
@@ -53,6 +54,7 @@ public class userServlet extends HttpServlet{
 
 
 		}catch (JSONException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -67,13 +69,21 @@ public class userServlet extends HttpServlet{
 		JSONObject JObject = new JSONObject();
 		String type = request.getParameter("type");
 
-		userDao dao = new userDao();
+		UserDao dao = new UserDao();
 //		Map<String, String[]> userParam = request.getParameterMap();
 
 		try{
 			if(type.equals("1")){	//Sign in API
 				Map<String, String[]> userParam = request.getParameterMap();				
 				JObject.put("result", dao.postUser(userParam));
+				
+			}else if(type.equals("2")){	//Update API
+				
+				String id = request.getParameter("id");
+				String name = request.getParameter("name");
+				String pass = request.getParameter("pass");
+				
+				JObject.put("result", dao.updateUser(id, name, pass));
 			}
 
 
@@ -91,7 +101,7 @@ public class userServlet extends HttpServlet{
 		PrintWriter printout = response.getWriter();
 		JSONObject JObject = new JSONObject();
 
-		userDao dao = new userDao();
+		UserDao dao = new UserDao();
 		
 		String userId = request.getParameter("id");
 

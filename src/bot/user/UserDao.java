@@ -10,16 +10,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class userDao {
-//	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-//	static final String DB_URL = "jdbc:mysql://54.64.160.105:3306/AYH";
-	
+public class UserDao {
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	static final String DB_URL = "jdbc:mysql://54.65.247.22:3306/BoT";
 
 	static final String USER = "root";
 	static final String PASS = "0311";
-	
 	/**
 	 * 커넥션 공동 메소드
 	 * @returna
@@ -47,16 +43,15 @@ public class userDao {
 			conn = getConnection();
 			stmt = conn.createStatement();
 			
-			String sql ="SELECT * FROM user where id='"+id+"'";
+//			String sql ="SELECT * FROM user where id='"+id+"'";
+			String sql = "SELECT * FROM user";
 			ResultSet rs = stmt.executeQuery(sql);
 
 			while(rs.next()){
 				HashMap<String, Object> item = new HashMap<String, Object>();
 				item.put("id", rs.getString("id"));
 				item.put("pass", rs.getString("pass"));
-				item.put("name", rs.getString("name"));
-				item.put("regdate", rs.getString("regdate"));
-				item.put("thumb",rs.getString("thumb"));
+
 			}
 
 			rs.close();
@@ -147,7 +142,7 @@ public class userDao {
 
 			stmt = conn.createStatement();
 			String sql= "INSERT INTO user (id, pass, name, regdate,thumb) "+
-						"VALUES('"+userParam.get("id")[0].toString()+"', '"+userParam.get("pass")[0].toString()+"', '"+userParam.get("name")[0].toString()+"', now(),'"+userParam.get("thumb")[0].toString()+"')";
+						"VALUES('"+userParam.get("id")[0].toString()+"', '"+userParam.get("pass")[0].toString()+"', '"+userParam.get("name")[0].toString()+"', now(), '1')";
 
 			stmt.executeUpdate(sql);
 
@@ -168,6 +163,33 @@ public class userDao {
 	}
 	
 //end FirstExample
+	
+	public String updateUser(String id, String name, String pass){
+		Connection conn = null;
+		Statement stmt = null;
+		String result = "success";
+		try{
+			conn = getConnection();
+			stmt = conn.createStatement();
+			
+			String sql= "UPDATE user SET name='"+name+"', pass='"+pass+"' where id='"+id+"'";
+			stmt.executeUpdate(sql);
+
+			stmt.close();
+			conn.close();
+
+		}catch(SQLException se){
+			se.printStackTrace();
+			result = "fail";
+		}catch(Exception e){
+			e.printStackTrace();
+			result = "fail";
+		}finally{
+			
+		}
+
+		return result;
+	}
 	
 	public int checkUser(String userId){	
 		Connection conn =null;
