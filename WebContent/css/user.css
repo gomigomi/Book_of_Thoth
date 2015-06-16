@@ -7,3 +7,9 @@
 #signup {
 	display : inline-block;
 }
+
+#logout {
+	background : transparent;
+	border : 0;
+	float : right;
+}
