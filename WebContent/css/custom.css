@@ -1,11 +1,14 @@
 .story{
     width: 800px;
 	
+    height: 500px;
     margin: 0 auto;
 }
 .story img{
     width: 800px;
 	
+    position: relative;
+    top: -42px;
 }
 .prebtn{
     position: relative;	
@@ -29,4 +32,76 @@
 .pre{
 }
 .next{
+}
+
+.selection{
+    background-color: black;	
+}
+
+.selection img{
+    opacity: 0.4;	
+    position: relative;
+    top: -125px;
+}
+.selection button{
+    position: relative;	
+    top: 300px;
+    width: 300px;
+    height: 32px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: white;
+    z-index: 3;
+}
+.selectdiv{
+	width: 300px;
+	margin:0 auto;
+}
+
+#selection10 img{
+
+}
+
+#selection10 button{
+    height: 53px;
+	
+}
+#selection21 img{
+
+}
+
+#selection21 button{
+    height: 53px;
+	
+}
+
+#goodEnding img{
+    top: 0px;	
+}
+#badEnding img{
+    top: 0px;	
+}
+#to1{
+	position: relative;
+	width: 186px;
+	top: -241px;
+	height: 29px;
+	left: 300px;
+	background-color: transparent;
+	border: 0;
+}
+#user_info{
+    height: 21px;
+	
+    width: 800px;
+    margin: 0 auto;
+}
+#user_info span{
+    float: right;	
+    margin-right: 15px;
+}
+#story_wrapper{
+    position: relative;
+	
+    top: 50px;
 }
