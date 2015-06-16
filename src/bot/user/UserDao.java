@@ -140,8 +140,8 @@ public class UserDao {
 			conn = getConnection();
 
 			stmt = conn.createStatement();
-			String sql= "INSERT INTO user (id, pass) "+
-						"VALUES('"+userParam.get("id")[0].toString()+"', '"+userParam.get("pass")[0].toString()+"')";
+			String sql= "INSERT INTO user (id, pass, bookmark) "+
+						"VALUES('"+userParam.get("id")[0].toString()+"', '"+userParam.get("pass")[0].toString()+"','1')";
 
 			stmt.executeUpdate(sql);
 

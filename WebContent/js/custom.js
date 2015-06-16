@@ -85,9 +85,19 @@ $(function() {
 		$('#21-1').show();
 	})
 	
-	$('#to1').click(function(){
+	$('#to1_bad').click(function(){
 		$('#badEnding').hide();
 		$('#1').show();
+	})
+	
+	$('#to1_good').click(function(){
+		$('#goodEnding').hide();
+		$('#1').show();
+	})
+	
+	$('#gotofeel').click(function(){
+		$('#goodEnding').hide();
+		$('#howdoifeel').show();
 	})
 	
 	$('#btn_1').click(function(){
