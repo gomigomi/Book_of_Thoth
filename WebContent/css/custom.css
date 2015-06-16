@@ -1,0 +1,23 @@
+.story{
+    width: 800px;
+	
+    margin: 0 auto;
+}
+.story img{
+    width: 800px;
+	
+}
+
+.pre{
+    position: relative;	
+    z-index: 2;
+    top: 260px;
+    font-size: xx-large;
+}
+.next{
+    position: relative;	
+    z-index: 2;
+    top: 260px;
+    float: right;
+    font-size:xx-large
+}
