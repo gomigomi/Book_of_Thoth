@@ -8,20 +8,57 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
 <link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="css/user.css">
  
 <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js"></script>
 <!-- <script src="js/bootstrap.min.js"></script> -->
 <script src="js/custom.js"></script>
+<script src="js/userController.js"></script>
+<script src="js/storage.js"></script>
 
 </head>
 <body>
 	<div id="firstView" style="display:none;">
 		<div id="login">
-			로그인 페이지 입니다.
+			<div id="login_content_wrapper">
+				<form action="" class="login_form modal" id="login_modal">
+					<h3>Please login to continue</h3>
+					<p>
+						<label></label><input type="text" id="user_id" placeholder=" ID">
+					</p>
+					<p>
+						<label></label><input type="password" id="user_pass"
+							placeholder=" Password">
+					</p>
+					<p>
+						<input type="button" value="Login" id="login_submit">
+					</p>
+				</form>
+				
+			</div>
 		</div>
 		<div id="signup">
-			회원가입 페이지 입니다.
+			<div id="signup_content_wrapper">
+				<form action="" class="signin_form modal" id="signin_modal">
+					<h3>Please Fill out this form to Sign in</h3>
+					<p>
+						<label></label><input type="text" id="user_signin_id"
+							placeholder=" ID">
+					</p>
+					<p>
+						<label></label><input type="password" id="user_signin_pass"
+							placeholder=" Password">
+					</p>
+					<p>
+						<label></label><input type="password" id="user_signin_passconf"
+							placeholder=" Confirmation">
+					</p>
+					<p>
+						<input type="button" value="Signin" id="signin_submit">
+					</p>
+				</form>
+			</div>
 		</div>
 	</div>
 	<div id="story_wrapper">	
