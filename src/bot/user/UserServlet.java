@@ -39,6 +39,7 @@ public class UserServlet extends HttpServlet{
 				String user_id=request.getParameter("id");
 				
 				JObject.put("result", dao.getUser(user_id));
+//				JObject.put("result", dao.getUser());
 			}else if(type.equals("2")){	//Login API
 				
 				String id = request.getParameter("id");

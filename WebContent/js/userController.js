@@ -1,5 +1,3 @@
-var id = window.sessionStorage.getItem('id');
-
 $(function() {
 	if(!sessionStorage.id) {
 		$('#firstView').show();
@@ -20,7 +18,7 @@ $(function() {
 			} 
 			
 			$.ajax({
-				url : 'http://localhost:8080/getUser?type=2',
+				url : '/getUser?type=1',
 				method : 'GET',
 				dataType : 'JSON',
 				async : false,
@@ -28,17 +26,20 @@ $(function() {
 					if(res.result.id) {
 						$('user_id').val('');
 						$('user_pass').val('');
-						
+						alert(res.result);
 						window.sessionStorage.setItem('id', res.result.id);
-						window.sessionStorage.setItem('psaa', res.result.pass);
+						window.sessionStorage.setItem('pass', res.result.pass);
 						window.sessionStorage.setItem('bookmark', res.result.bookmark);
 						console.log("User "+id+" Logged-in.");
 						
 						$('#firstView').hide();
 						$('#story_wrapper').show();
 					} else {
+						console.log(res.result);
 						alert("로그인에 실패하였습니다.\n다시 시도해 주세요.")
 					}
+				}, error : function() {
+					alert("Fail");
 				}
 			})
 		}) 

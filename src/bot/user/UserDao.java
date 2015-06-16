@@ -12,8 +12,11 @@ import java.util.Map;
 
 public class UserDao {
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	static final String DB_URL = "jdbc:mysql://54.65.247.22:3306/BoT";
+	static final String DB_URL = "jdbc:mysql://54.65.247.22:3306/bot";
 
+//	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+//	static final String DB_URL = "jdbc:mysql://localhost:3306/BoT";
+	
 	static final String USER = "root";
 	static final String PASS = "0311";
 	/**
@@ -35,23 +38,24 @@ public class UserDao {
 	}
 
 	public HashMap<String, Object> getUser(String id) {
+//	public HashMap<String, Object> getUser() {
 		Connection conn = null;
 		Statement stmt = null;
 		HashMap<String, Object> result = new HashMap<String, Object>();
-		System.out.println("Fron Ajax!!");
+		System.out.println("getUser_type1");
 		try{
 			conn = getConnection();
 			stmt = conn.createStatement();
 			
-//			String sql ="SELECT * FROM user where id='"+id+"'";
-			String sql = "SELECT * FROM user";
+			String sql ="SELECT * FROM user where id='"+id+"'";
+//			String sql = "SELECT * FROM user";
 			ResultSet rs = stmt.executeQuery(sql);
 
 			while(rs.next()){
 				HashMap<String, Object> item = new HashMap<String, Object>();
 				item.put("id", rs.getString("id"));
 				item.put("pass", rs.getString("pass"));
-
+				item.put("bookmark", rs.getString("bookmark"));
 			}
 
 			rs.close();
@@ -83,10 +87,7 @@ public class UserDao {
 				//HashMap<String, Object> item = new HashMap<String, Object>();
 				result.put("id", rs.getString("id"));
 				result.put("pass", rs.getString("pass"));
-				result.put("name", rs.getString("name"));
-				result.put("regdate", rs.getString("regdate"));
-				result.put("thumb", rs.getString("thumb"));
-				
+				result.put("bookmark", rs.getString("bookmark"));
 				//result.add(item);
 			}
 
@@ -141,8 +142,8 @@ public class UserDao {
 			conn = getConnection();
 
 			stmt = conn.createStatement();
-			String sql= "INSERT INTO user (id, pass, name, regdate,thumb) "+
-						"VALUES('"+userParam.get("id")[0].toString()+"', '"+userParam.get("pass")[0].toString()+"', '"+userParam.get("name")[0].toString()+"', now(), '1')";
+			String sql= "INSERT INTO user (id, pass) "+
+						"VALUES('"+userParam.get("id")[0].toString()+"', '"+userParam.get("pass")[0].toString()+"')";
 
 			stmt.executeUpdate(sql);
 
