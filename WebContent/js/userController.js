@@ -1,12 +1,36 @@
 $(function() {
 	if(!sessionStorage.id) {
 		location.href="/NewFront.jsp";
-	} 
+	}
+	
+	if(sessionStorage.bookmark){
+		var r = confirm("예전 플레이가 저장되어 있습니다. 이동하시겠습니까?");
+		if (r == true) {
+			var bookmark=window.sessionStorage.getItem('bookmark');
+			$('#1').hide();
+			$('#'+bookmark).show();
+		} else {
+			window.sessionStorage.setItem('bookmark','');
+		}
+	}
 	 var id = sessionStorage.getItem('id');
 	 $('#userid').append('<span id="userid_ex"> 님 플레이중입니다.</span>'+'<span id="userid_id">'+id+'</span>');
 
 	
 	 $('#logout').click(function() {
+		getVisibleDiv();
+		var id = window.sessionStorage.getItem('id');
+			$.ajax({
+				url : '/postUser?type=2',
+				type : 'POST',
+				data : {
+					id: id,
+					bookmark: thisPage
+				},
+				success : function(res) {
+				}
+			});
+		
 		 sessionStorage.clear();
 		 location.href="/NewFront.jsp";
 	 })

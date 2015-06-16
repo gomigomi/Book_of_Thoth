@@ -81,10 +81,9 @@ public class UserServlet extends HttpServlet{
 			}else if(type.equals("2")){	//Update API
 				
 				String id = request.getParameter("id");
-				String name = request.getParameter("name");
-				String pass = request.getParameter("pass");
+				String bookmark = request.getParameter("bookmark");
 				
-				JObject.put("result", dao.updateUser(id, name, pass));
+				JObject.put("result", dao.updateUser(id, bookmark));
 			}
 
 

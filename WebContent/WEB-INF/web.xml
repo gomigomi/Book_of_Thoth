@@ -21,4 +21,13 @@
   	<servlet-name>getUser</servlet-name>
   	<url-pattern>/getUser</url-pattern>
   </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>postUser</servlet-name>
+  	<servlet-class>bot.user.UserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>postUser</servlet-name>
+  	<url-pattern>/postUser</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -8,7 +8,7 @@ body {background-size:cov2; background-image:url("/img/gamjajeon.jpg");}
 .container {
 	max-width: 70%;
 	height: 30%;
-	margin: 15% auto; 
+	margin: 9% auto; 
 	/*background: rgba(0, 36, 255, 0.5);*/
 }
 
@@ -23,7 +23,9 @@ body {background-size:cov2; background-image:url("/img/gamjajeon.jpg");}
 	vertical-align: middle;
 	text-align: center;
 }  
-
+.inner-wrapper img{
+	width:50%
+}
 @media screen and (max-width:300px) {
 	.container{
 		background:rgba(255,255,255,1);
@@ -37,9 +39,9 @@ body {background-size:cov2; background-image:url("/img/gamjajeon.jpg");}
 	display: inline-block;
  
 	width: 50%;
-	height: 85%;
+	height: 57%;
 	padding: 1em;
-	background:rgba(54,161,255,0.5);
+	background: #957955;
 	color: white;
 	
 }

@@ -16,31 +16,24 @@
 	userHash = udao.loginUser(form_id, form_pw);
 	String idHash;
 	String pwHash;
-	String nameHash;
-	String regdateHash;
-	String thumbHash;
+	String bookmarkHash;
 	
 	
 	//¼­ºí¸´ ÇÔ¼ö->ÇØ½¬¸Ê->½ºÆ®¸µ->jsp¼¼¼Ç½ºÅä¸®Áö
 	idHash = (String)userHash.get("id");
 	pwHash = (String)userHash.get("pass");
-	nameHash = (String)userHash.get("name");
-	regdateHash = (String)userHash.get("regdate");
-	thumbHash = (String)userHash.get("thumb");
+	bookmarkHash = (String)userHash.get("bookmark");
 	
 	session.setAttribute("id", idHash);
 	session.setAttribute("pass", pwHash);
-	session.setAttribute("name", nameHash);
-	session.setAttribute("regdate", regdateHash);
-	session.setAttribute("thumb", thumbHash);
+	session.setAttribute("bookmark", bookmarkHash);
 %>		
 
 <%--jsp ¼¼¼Ç session to js jquery ¼¼¼Ç session --%>
 <%
 	String id = (String)session.getAttribute("id");
-	String pw = (String)session.getAttribute("pw");
-	String name = (String)session.getAttribute("name");
-	String thumb = (String)session.getAttribute("thumb");
+	String pw = (String)session.getAttribute("pass");
+	String bookmark = (String)session.getAttribute("bookmark");
 %>
 
 <%
@@ -61,8 +54,7 @@
 	function redirectPage(){
 	sessionStorage.setItem("id", "<%=id%>")
 	sessionStorage.setItem("pw", "<%=pw%>")
-	sessionStorage.setItem("name", "<%=name%>")
-	sessionStorage.setItem("thumb", "<%=thumb%>")
+	sessionStorage.setItem("bookmark", "<%=bookmark%>")
 	document.location.href= "index.html"
 	}
 
