@@ -3,14 +3,16 @@ $(function() {
 		location.href="/NewFront.jsp";
 	} 
 	 var id = sessionStorage.getItem('id');
-	 $('#userid').append('<span id="userid_ex"> 님 플레이중입니다.</span>'+'<span id="userid_id">'+id+'</span>');
+	 var pass = sessionStorage.getItem('pw');
+	 var bookmark = sessionStorage.getItem('thumb');
+	 
+	 $('#userid').append('<span id="userid_ex">님 플레이중입니다.</span>'+'<span id="userid_id">'+id+'</span>');
 
 	
 	 $('#logout').click(function() {
 		 sessionStorage.clear();
 		 location.href="/NewFront.jsp";
 	 })
-	 
 })
 
 

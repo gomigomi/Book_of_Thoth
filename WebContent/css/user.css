@@ -1,5 +1,3 @@
-
-
 #login {
 	display : inline-block;
 }
@@ -13,3 +11,13 @@
 	border : 0;
 	float : right;
 }
+
+#userid_id {
+	font-weight : 700;
+	color : chocolate;
+/* 	font-size : 2em; */
+	position : relative;
+	top : -3px;
+}
+
+
