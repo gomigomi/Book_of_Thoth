@@ -4,6 +4,14 @@
     height: 500px;
     margin: 0 auto;
 }
+#howdoifeel{
+    background-color: black;
+}
+#howdoifeel img{
+    position: relative;
+	
+    top: 0px;
+}
 .story img{
     width: 800px;
 	
@@ -89,7 +97,7 @@
 #badEnding img{
     top: 0px;	
 }
-#to1{
+#to1_bad{
 	position: relative;
 	width: 186px;
 	top: -241px;
@@ -119,4 +127,17 @@
     position: relative;
     top: 119px;
     height: 20px;
+}
+
+#goodEnding button{
+    position: relative;
+	
+    top: -193px;
+    left: 238px;
+    width: 120px;
+    height: 37px;
+    margin: 17px;
+    border-radius: 10px;
+    border: 0;
+    background-color: white;
 }

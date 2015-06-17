@@ -84,11 +84,9 @@ public class UserDao {
 			ResultSet rs = stmt.executeQuery(sql);
 
 			while(rs.next()){
-				//HashMap<String, Object> item = new HashMap<String, Object>();
 				result.put("id", rs.getString("id"));
 				result.put("pass", rs.getString("pass"));
 				result.put("bookmark", rs.getString("bookmark"));
-				//result.add(item);
 			}
 
 			rs.close();
@@ -142,8 +140,8 @@ public class UserDao {
 			conn = getConnection();
 
 			stmt = conn.createStatement();
-			String sql= "INSERT INTO user (id, pass) "+
-						"VALUES('"+userParam.get("id")[0].toString()+"', '"+userParam.get("pass")[0].toString()+"')";
+			String sql= "INSERT INTO user (id, pass, bookmark) "+
+						"VALUES('"+userParam.get("id")[0].toString()+"', '"+userParam.get("pass")[0].toString()+"','1')";
 
 			stmt.executeUpdate(sql);
 
@@ -165,7 +163,7 @@ public class UserDao {
 	
 //end FirstExample
 	
-	public String updateUser(String id, String name, String pass){
+	public String updateUser(String id, String bookmark){
 		Connection conn = null;
 		Statement stmt = null;
 		String result = "success";
@@ -173,14 +171,14 @@ public class UserDao {
 			conn = getConnection();
 			stmt = conn.createStatement();
 			
-			String sql= "UPDATE user SET name='"+name+"', pass='"+pass+"' where id='"+id+"'";
+			String sql= "UPDATE user SET bookmark='"+bookmark+"' where id='"+id+"'";
 			stmt.executeUpdate(sql);
 
 			stmt.close();
 			conn.close();
 
 		}catch(SQLException se){
-			se.printStackTrace();
+			se.printStackTrace(); 
 			result = "fail";
 		}catch(Exception e){
 			e.printStackTrace();
